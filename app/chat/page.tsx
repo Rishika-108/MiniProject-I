@@ -57,97 +57,93 @@ export default function ChatPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const generateJarvisResponse = (userMessage: string): { message: string; profileCard?: any } => {
-    const lowerMessage = userMessage.toLowerCase()
+//   const handleSendMessage = async (messageText: string) => {
+//   const userMessage: Message = {
+//     id: Date.now().toString(),
+//     message: messageText,
+//     isUser: true,
+//     timestamp: new Date(),
+//   };
+//   setMessages(prev => [...prev, userMessage]);
 
-    // Check for person queries
-    if (lowerMessage.includes("who is") || lowerMessage.includes("tell me about")) {
-      if (lowerMessage.includes("elon musk")) {
-        return {
-          message:
-            "Elon Musk is a business magnate and entrepreneur known for his work with Tesla, SpaceX, and other innovative companies.",
-          profileCard: {
-            name: "Elon Musk",
-            image: "/elon-musk-portrait.png",
-            bio: "CEO of Tesla and SpaceX, entrepreneur and business magnate focused on sustainable energy and space exploration.",
-            link: "https://en.wikipedia.org/wiki/Elon_Musk",
-          },
-        }
-      }
-      if (lowerMessage.includes("steve jobs")) {
-        return {
-          message:
-            "Steve Jobs was the co-founder and former CEO of Apple Inc., known for revolutionizing personal computing and mobile technology.",
-          profileCard: {
-            name: "Steve Jobs",
-            image: "/thoughtful-innovator-portrait.png",
-            bio: "Co-founder of Apple Inc., visionary entrepreneur who revolutionized personal computing, smartphones, and digital media.",
-            link: "https://en.wikipedia.org/wiki/Steve_Jobs",
-          },
-        }
-      }
-    }
+//   setIsTyping(true);
 
-    // General responses
-    if (lowerMessage.includes("hello") || lowerMessage.includes("hi")) {
-      return { message: "Hello! I'm here to assist you with any questions or tasks you might have." }
-    }
+//   try {
+//     const res = await fetch("/api/chat", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ message: messageText }),
+//     });
 
-    if (lowerMessage.includes("weather")) {
-      return { message: "I can help you check the weather. Would you like me to open a weather service for you?" }
-    }
+//     const data = await res.json();
 
-    if (lowerMessage.includes("music") || lowerMessage.includes("play")) {
-      return { message: "I can help you play music. Would you like me to open Spotify or another music service?" }
-    }
+//     const aiMessage: Message = {
+//       id: (Date.now() + 1).toString(),
+//       message: data.reply || "Error: No response",
+//       isUser: false,
+//       timestamp: new Date(),
+//     };
 
-    if (lowerMessage.includes("time")) {
-      const currentTime = new Date().toLocaleTimeString()
-      return { message: `The current time is ${currentTime}.` }
-    }
+//     setMessages(prev => [...prev, aiMessage]);
+//   } catch (error) {
+//     const aiMessage: Message = {
+//       id: (Date.now() + 2).toString(),
+//       message: "Error reaching AI model",
+//       isUser: false,
+//       timestamp: new Date(),
+//     };
+//     setMessages(prev => [...prev, aiMessage]);
+//   }
 
-    if (lowerMessage.includes("date")) {
-      const currentDate = new Date().toLocaleDateString()
-      return { message: `Today's date is ${currentDate}.` }
-    }
+//   setIsTyping(false);
+// };
+const handleSendMessage = async (messageText: string) => {
+  // Add user message
+  const userMessage: Message = {
+    id: Date.now().toString(),
+    message: messageText,
+    isUser: true,
+    timestamp: new Date(),
+  };
+  setMessages(prev => [...prev, userMessage]);
 
-    // Default response
-    return {
-      message:
-        "I understand you're asking about that. As your AI assistant, I'm here to help with various tasks like checking weather, playing music, opening applications, or answering questions. What would you like me to help you with?",
-    }
-  }
+  setIsTyping(true);
 
-  const handleSendMessage = async (messageText: string) => {
-    // Add user message
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      message: messageText,
-      isUser: true,
+  try {
+    // Call backend
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: messageText }),
+    });
+
+    const data = await res.json();
+
+    // Add assistant message (ONLY here)
+    const aiMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      message: data.reply || "Error: No response from AI",
+      isUser: false,
       timestamp: new Date(),
-    }
-    setMessages((prev) => [...prev, userMessage])
+    };
 
-    // Show typing indicator
-    setIsTyping(true)
+    setMessages(prev => [...prev, aiMessage]);
 
-    // Simulate AI response delay
-    setTimeout(
-      () => {
-        const response = generateJarvisResponse(messageText)
-        const jarvisMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          message: response.message,
-          isUser: false,
-          timestamp: new Date(),
-          profileCard: response.profileCard,
-        }
-        setMessages((prev) => [...prev, jarvisMessage])
-        setIsTyping(false)
-      },
-      1000 + Math.random() * 2000,
-    ) // Random delay between 1-3 seconds
+  } catch (error) {
+    // Error fallback
+    const aiMessage: Message = {
+      id: (Date.now() + 2).toString(),
+      message: "Error reaching AI model",
+      isUser: false,
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, aiMessage]);
   }
+
+  setIsTyping(false);
+};
+
+
 
   if (!isAuthenticated) {
     return (
@@ -267,7 +263,12 @@ export default function ChatPage() {
             <div ref={messagesEndRef} />
           </div>
 
-          <ChatInput onMessage={handleSendMessage} disabled={isTyping} />
+          {/* <ChatInput onMessage={handleSendMessage} disabled={isTyping} /> */}
+          <ChatInput
+  onMessage={(msgObj) => handleSendMessage(msgObj.text)}
+  disabled={isTyping}
+/>
+
         </div>
       </div>
 

@@ -35,7 +35,7 @@ export function DashboardSidebar() {
           <JarvisLogo className="w-10 h-10" animated />
           {(!isCollapsed || isMobileOpen) && (
             <div>
-              <h2 className="font-serif text-xl font-bold text-primary neon-text">JARVIS</h2>
+              <h2 className="font-serif text-xl font-bold text-primary neon-text">SWASTIK</h2>
               <p className="text-xs text-muted-foreground">AI Assistant</p>
             </div>
           )}
