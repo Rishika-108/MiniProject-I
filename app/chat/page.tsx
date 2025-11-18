@@ -6,7 +6,7 @@ import { DashboardSidebar } from "@/components/dashboard-sidebar"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { ChatMessage } from "@/components/chat-message"
 import { ChatInput } from "@/components/chat-input"
-import { JarvisLogo } from "@/components/jarvis-logo"
+import { SwastikLogo } from "@/components/Swastik-logo"
 import { MobileBottomNav } from "@/components/mobile-bottom-nav"
 import { Brain, Zap, Activity } from "lucide-react"
 
@@ -31,7 +31,7 @@ export default function ChatPage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
+    const auth = localStorage.getItem("Swastik-auth")
     if (!auth) {
       router.push("/login")
       return
@@ -57,7 +57,7 @@ export default function ChatPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const generateJarvisResponse = (userMessage: string): { message: string; profileCard?: any } => {
+  const generateSwastikResponse = (userMessage: string): { message: string; profileCard?: any } => {
     const lowerMessage = userMessage.toLowerCase()
 
     // Check for person queries
@@ -134,15 +134,15 @@ export default function ChatPage() {
     // Simulate AI response delay
     setTimeout(
       () => {
-        const response = generateJarvisResponse(messageText)
-        const jarvisMessage: Message = {
+        const response = generateSwastikResponse(messageText)
+        const SwastikMessage: Message = {
           id: (Date.now() + 1).toString(),
           message: response.message,
           isUser: false,
           timestamp: new Date(),
           profileCard: response.profileCard,
         }
-        setMessages((prev) => [...prev, jarvisMessage])
+        setMessages((prev) => [...prev, SwastikMessage])
         setIsTyping(false)
       },
       1000 + Math.random() * 2000,
@@ -191,7 +191,7 @@ export default function ChatPage() {
           <div className="border-b border-border/30 bg-card/20 glass-ultra backdrop-blur-xl p-4 neon-glow-accent">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <JarvisLogo className="w-8 md:w-10 h-8 md:h-10 floating" animated />
+                <SwastikLogo className="w-8 md:w-10 h-8 md:h-10 floating" animated />
                 <div className="absolute -inset-2 bg-primary/20 rounded-full blur-md animate-pulse"></div>
               </div>
               <div>
@@ -244,7 +244,7 @@ export default function ChatPage() {
               <div className="flex justify-start mb-4">
                 <div className="flex items-end gap-3 floating">
                   <div className="relative">
-                    <JarvisLogo className="w-8 h-8" animated />
+                    <SwastikLogo className="w-8 h-8" animated />
                     <div className="absolute -inset-1 bg-primary/30 rounded-full blur-sm animate-pulse"></div>
                   </div>
                   <div className="glass-ultra p-4 rounded-2xl rounded-bl-md border border-primary/30 neon-glow holographic">

@@ -1,4 +1,4 @@
-export function JarvisLogo({ className = "", animated = false }: { className?: string; animated?: boolean }) {
+export function SwastikLogo({ className = "", animated = false }: { className?: string; animated?: boolean }) {
   return (
     <div className={`relative ${className}`}>
       <div

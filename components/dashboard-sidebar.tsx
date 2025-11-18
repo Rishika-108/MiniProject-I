@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { JarvisLogo } from "@/components/jarvis-logo"
+import { SwastikLogo } from "@/components/Swastik-logo"
 import { Home, MessageCircle, Grid3X3, BookOpen, Settings, Zap, LogOut, Menu, X } from "lucide-react"
 
 const sidebarItems = [
@@ -22,8 +22,8 @@ export function DashboardSidebar() {
   const pathname = usePathname()
 
   const handleLogout = () => {
-    localStorage.removeItem("jarvis-auth")
-    localStorage.removeItem("jarvis-username")
+    localStorage.removeItem("Swastik-auth")
+    localStorage.removeItem("Swastik-username")
     router.push("/login")
   }
 
@@ -32,10 +32,10 @@ export function DashboardSidebar() {
       {/* Logo and Title */}
       <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <JarvisLogo className="w-10 h-10" animated />
+          <SwastikLogo className="w-10 h-10" animated />
           {(!isCollapsed || isMobileOpen) && (
             <div>
-              <h2 className="font-serif text-xl font-bold text-primary neon-text">JARVIS</h2>
+              <h2 className="font-serif text-xl font-bold text-primary neon-text">SWASTIK</h2>
               <p className="text-xs text-muted-foreground">AI Assistant</p>
             </div>
           )}

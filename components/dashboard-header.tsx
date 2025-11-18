@@ -13,7 +13,7 @@ export function DashboardHeader() {
   const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("jarvis-username") || "User"
+    const storedUsername = localStorage.getItem("Swastik-username") || "User"
     setUsername(storedUsername)
   }, [])
 
@@ -32,7 +32,7 @@ export function DashboardHeader() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
             <Input
               type="text"
-              placeholder="Ask Jarvis anything..."
+              placeholder="Ask Swastik anything..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 glass bg-input/50 border-border/50 focus:border-primary focus:ring-primary/50 transition-all duration-300"

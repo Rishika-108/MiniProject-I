@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Ultra-advanced futuristic Jarvis AI theme with enhanced glassmorphism and holographic effects */
+  /* Ultra-advanced futuristic Swastik AI theme with enhanced glassmorphism and holographic effects */
   --background: #0a0a0f;
   --foreground: #ffffff;
   --card: rgba(255, 255, 255, 0.03);

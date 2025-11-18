@@ -32,7 +32,7 @@
 //   const router = useRouter()
 
 //   useEffect(() => {
-//     const auth = localStorage.getItem("jarvis-auth")
+//     const auth = localStorage.getItem("Swastik-auth")
 //     if (!auth) {
 //       router.push("/login")
 //       return
@@ -147,7 +147,7 @@
 //                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
 //                 <Input
 //                   type="text"
-//                   placeholder="Ask Jarvis about anything..."
+//                   placeholder="Ask Swastik about anything..."
 //                   value={searchQuery}
 //                   onChange={(e) => setSearchQuery(e.target.value)}
 //                   onKeyPress={handleKeyPress}
@@ -252,7 +252,7 @@ export default function KnowledgePage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
+    const auth = localStorage.getItem("Swastik-auth")
     if (!auth) {
       router.push("/login")
       return

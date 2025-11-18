@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
-import { JarvisLogo } from "@/components/jarvis-logo"
+import { SwastikLogo } from "@/components/Swastik-logo"
 import { Edit, Calendar, Clock, Activity } from "lucide-react"
 
 export default function ProfilePage() {
@@ -24,23 +24,23 @@ export default function ProfilePage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
+    const auth = localStorage.getItem("Swastik-auth")
     if (!auth) {
       router.push("/login")
       return
     }
     setIsAuthenticated(true)
 
-    const username = localStorage.getItem("jarvis-username") || "User"
+    const username = localStorage.getItem("Swastik-username") || "User"
     setProfile((prev) => ({
       ...prev,
       name: username,
-      email: `${username.toLowerCase()}@jarvis.ai`,
+      email: `${username.toLowerCase()}@Swastik.ai`,
     }))
   }, [router])
 
   const handleSaveProfile = () => {
-    localStorage.setItem("jarvis-username", profile.name)
+    localStorage.setItem("Swastik-username", profile.name)
     setIsEditing(false)
     alert("Profile updated successfully!")
   }
@@ -96,7 +96,7 @@ export default function ProfilePage() {
                       </AvatarFallback>
                     </Avatar>
                     <div className="absolute -bottom-2 -right-2">
-                      <JarvisLogo className="w-8 h-8" />
+                      <SwastikLogo className="w-8 h-8" />
                     </div>
                   </div>
 

@@ -93,7 +93,7 @@ export function ChatInput({ onMessage, disabled = false }: ChatInputProps) {
           <Input
             ref={inputRef}
             type="text"
-            placeholder="Ask Jarvis anything..."
+            placeholder="Ask Swastik anything..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             disabled={disabled}
