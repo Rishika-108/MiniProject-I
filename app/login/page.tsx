@@ -84,7 +84,7 @@ export default function AuthPage() {
 
   try {
     // 🔒 Hardcoded login validation
-    if (formData.email === "rishi@gmail.com" && formData.password === "123456") {
+    if (formData.email === "admin@gmail.com" && formData.password === "123456") {
       // Simulate login success
       localStorage.setItem("Swastik-auth", "true");
       localStorage.setItem("Swastik-email", formData.email);
