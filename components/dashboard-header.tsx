@@ -13,7 +13,7 @@ export function DashboardHeader() {
   const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("jarvis-username") || "User"
+    const storedUsername = localStorage.getItem("Swastik-username") || "User"
     setUsername(storedUsername)
   }, [])
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { JarvisLogo } from "@/components/jarvis-logo"
+import { SwastikLogo } from "@/components/Swastik-logo"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
@@ -46,7 +46,7 @@ export function ChatMessage({ message, isUser, timestamp, profileCard }: ChatMes
   return (
     <div className="flex justify-start mb-4">
       <div className="flex items-end gap-3 max-w-[70%]">
-        <JarvisLogo className="w-8 h-8" animated />
+        <SwastikLogo className="w-8 h-8" animated />
         <div className="space-y-1">
           <div className="glass-card p-4 rounded-2xl rounded-bl-md border border-primary/30">
             <p className="text-card-foreground">{message}</p>

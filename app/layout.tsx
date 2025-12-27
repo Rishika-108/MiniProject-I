@@ -18,7 +18,7 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: "Jarvis AI - Personal Assistant System",
+  title: "Swastik AI - Personal Assistant System",
   description: "Futuristic AI Personal Assistant Interface",
   generator: "v0.app",
 }

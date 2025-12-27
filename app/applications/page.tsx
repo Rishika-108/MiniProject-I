@@ -112,7 +112,7 @@ export default function ApplicationsPage() {
 
   // Check authentication
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
+    const auth = localStorage.getItem("Swastik-auth")
     if (!auth) {
       router.push("/login")
       return

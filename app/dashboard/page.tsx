@@ -22,8 +22,8 @@ export default function DashboardPage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
-    const storedUsername = localStorage.getItem("jarvis-username")
+    const auth = localStorage.getItem("Swastik-auth")
+    const storedUsername = localStorage.getItem("Swastik-username")
 
     if (!auth) {
       router.push("/login")

@@ -27,7 +27,7 @@ export default function SettingsPage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = localStorage.getItem("jarvis-auth")
+    const auth = localStorage.getItem("Swastik-auth")
     if (!auth) {
       router.push("/login")
       return
@@ -41,7 +41,7 @@ export default function SettingsPage() {
 
   const handleSaveSettings = () => {
     // In a real app, this would save to backend
-    localStorage.setItem("jarvis-settings", JSON.stringify(settings))
+    localStorage.setItem("Swastik-settings", JSON.stringify(settings))
     alert("Settings saved successfully!")
   }
 
@@ -67,7 +67,7 @@ export default function SettingsPage() {
           {/* Page Header */}
           <div className="mb-8">
             <h1 className="font-serif text-3xl lg:text-4xl font-bold mb-2 text-primary neon-text">Settings</h1>
-            <p className="text-lg text-muted-foreground">Customize your Jarvis experience</p>
+            <p className="text-lg text-muted-foreground">Customize your Swastik experience</p>
           </div>
 
           <div className="space-y-6 max-w-4xl">
@@ -101,7 +101,7 @@ export default function SettingsPage() {
             <SettingsSection icon={User} title="Profile" description="Manage your account information">
               <SettingItem label="Display Name">
                 <Input
-                  defaultValue={localStorage.getItem("jarvis-username") || "User"}
+                  defaultValue={localStorage.getItem("Swastik-username") || "User"}
                   className="w-48 glass"
                   placeholder="Enter your name"
                 />

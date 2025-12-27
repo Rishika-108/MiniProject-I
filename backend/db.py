@@ -8,7 +8,7 @@ load_dotenv()
 
 # Get MongoDB connection info
 MONGODB_URI = os.getenv("MONGODB_URI")
-DB_NAME = os.getenv("DB_NAME", "jarvis")
+DB_NAME = os.getenv("DB_NAME", "Swastik")
 
 if not MONGODB_URI:
     raise ValueError("❌ MONGODB_URI is not set in the .env file")

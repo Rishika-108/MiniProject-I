@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-app = FastAPI(title="Jarvis Backend")
+app = FastAPI(title="Swastik Backend")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,4 +27,4 @@ app.include_router(system.router)
 
 @app.get("/")
 def root():
-    return {"message": "Jarvis Backend is running"}
+    return {"message": "Swastik Backend is running"}

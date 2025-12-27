@@ -28,7 +28,7 @@ async def send_chat(req: ChatRequest, user=Depends(get_current_user)):
     payload = {
         "model": "gpt-4o-mini",  # change to the model name you want (openrouter label)
         "messages": [
-            {"role": "system", "content": "You are Jarvis, a helpful student assistant."},
+            {"role": "system", "content": "You are Swastik, a helpful student assistant."},
             {"role": "user", "content": req.message},
         ],
         "temperature": 0.6,

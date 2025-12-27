@@ -1,6 +1,6 @@
 "use client";
 
-import { JarvisLogo } from "@/components/jarvis-logo";
+import { SwastikLogo } from "@/components/Swastik-logo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -59,8 +59,8 @@ export default function AuthPage() {
   //   try {
   //     const res = await login(formData.email, formData.password);
   //     if (res.access_token) {
-  //       localStorage.setItem("jarvis-auth", "true");
-  //       localStorage.setItem("jarvis-email", formData.email);
+  //       localStorage.setItem("Swastik-auth", "true");
+  //       localStorage.setItem("Swastik-email", formData.email);
   //       localStorage.setItem("token", res.access_token);
   //       router.push("/dashboard");
   //     } else {
@@ -86,8 +86,8 @@ export default function AuthPage() {
     // 🔒 Hardcoded login validation
     if (formData.email === "rishi@gmail.com" && formData.password === "123456") {
       // Simulate login success
-      localStorage.setItem("jarvis-auth", "true");
-      localStorage.setItem("jarvis-email", formData.email);
+      localStorage.setItem("Swastik-auth", "true");
+      localStorage.setItem("Swastik-email", formData.email);
       localStorage.setItem("token", "dummy-token-123456");
       router.push("/dashboard");
     } else {
@@ -107,7 +107,7 @@ export default function AuthPage() {
       <div className="w-full max-w-sm md:max-w-md space-y-6 md:space-y-8 relative z-10">
         {/* Logo & heading */}
         <div className="text-center space-y-4">
-          <JarvisLogo className="mx-auto" animated />
+          <SwastikLogo className="mx-auto" animated />
           <h1 className="font-serif text-3xl md:text-4xl font-bold neon-text text-primary">
             SWASTIK
           </h1>

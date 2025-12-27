@@ -32,7 +32,7 @@ export default function SystemPage() {
   const router = useRouter()
 
   // useEffect(() => {
-  //   const auth = localStorage.getItem("jarvis-auth")
+  //   const auth = localStorage.getItem("Swastik-auth")
   //   if (!auth) {
   //     router.push("/login")
   //     return
@@ -54,7 +54,7 @@ export default function SystemPage() {
   // }, [router])
 
   useEffect(() => {
-  const auth = localStorage.getItem("jarvis-auth")
+  const auth = localStorage.getItem("Swastik-auth")
   if (!auth) {
     router.push("/login")
     return
